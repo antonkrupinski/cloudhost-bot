@@ -1,0 +1,4 @@
+# Render deploy configuration
+# Docs: https://render.com/docs/deploy-node-express-app
+
+start: npm start
