@@ -1,5 +1,11 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, REST, Routes, SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ModalBuilder, TextInputBuilder, ButtonBuilder, ButtonStyle, ActivityType } = require('discord.js');
+const express = require('express');
+// Minimal Express server for Render health check
+const healthApp = express();
+const PORT = process.env.PORT || 3000;
+healthApp.get('/healthz', (req, res) => res.send('ok'));
+healthApp.listen(PORT, () => console.log(`Health check server running on port ${PORT}`));
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
